@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    role: locust-ui
+  name: locust-ui
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8089
+    targetPort: 8089
+    name: web-ui
+  selector:
+    role: locust-master
+    app: locust-master
